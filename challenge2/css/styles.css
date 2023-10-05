@@ -1,0 +1,112 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.container {
+    text-align: center;
+    padding: 50px;
+    background-color: #014a94;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin: 3rem;
+    color: white;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.balance {
+    font-size: 18px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#balance-amount {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.input-container {
+    margin-bottom: 20px;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 8px 16px;
+    margin: 10px;
+    cursor: pointer;
+    min-width: 150px;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    border-radius: 5px;
+}
+
+#exit-button {
+    background-color: red;
+}
+
+.transaction-log {
+    text-align: left;
+}
+
+#transaction-log-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    overflow-x: auto; 
+}
+
+#transaction-log-table th, #transaction-log-table td {
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+#transaction-log-table th {
+    background-color: #014a94;
+    color: white;
+}
+
+@media (max-width: 800px) {
+    #transaction-log-table {
+        font-size: 10px;
+    }
+    #transaction-log-table th, #transaction-log-table td {
+        padding: 5px;
+    }
+}
+
+.progress-container {
+    margin-top: 10px;
+    height: 20px;
+    background-color: #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress {
+    width: 0;
+    height: 100%;
+    background-color: #007bff;
+    transition: width 2s linear;
+}
+
+.hidden {
+    display: none;
+}
