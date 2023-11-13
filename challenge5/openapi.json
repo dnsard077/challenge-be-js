@@ -1,0 +1,1118 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "DigiBank Documentation - OpenAPI 3.0",
+    "description": "Dokumentasi API DigiBank",
+    "contact": {
+      "email": "apiteam@swagger.io"
+    },
+    "version": "1.0.11"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:5000/api/v1"
+    }
+  ],
+  "tags": [
+    {
+      "name": "auth",
+      "description": "authentication and authorization"
+    },
+    {
+      "name": "users",
+      "description": "Operations about user"
+    },
+    {
+      "name": "accounts",
+      "description": "Operations about account"
+    },
+    {
+      "name": "transactions",
+      "description": "Operations about transaction"
+    }
+  ],
+  "paths": {
+    "/users": {
+      "get": {
+        "tags": [
+          "users"
+        ],
+        "summary": "Get users lists",
+        "description": "Get users Lists",
+        "operationId": "getUsers",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Pagination page",
+            "required": false,
+            "explode": true,
+            "schema": {
+              "type": "number",
+              "default": 1
+            }
+          },
+          {
+            "name": "itemsPerPage",
+            "in": "query",
+            "description": "Pagination limit",
+            "required": false,
+            "explode": true,
+            "schema": {
+              "type": "number",
+              "default": 10
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Users"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "authorization": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "users"
+        ],
+        "summary": "Add a new users",
+        "description": "Add a new users",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/Register"
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Register"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "authorization": []
+          }
+        ]
+      }
+    },
+    "/users/{id}": {
+      "get": {
+        "tags": [
+          "users"
+        ],
+        "summary": "Get users by id",
+        "description": "Get users by id",
+        "operationId": "getUsersById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "userID",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Users"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "authorization": []
+          }
+        ]
+      }
+    },
+    "/accounts": {
+      "get": {
+        "tags": [
+          "accounts"
+        ],
+        "summary": "Get accounts lists",
+        "description": "Get accounts Lists",
+        "operationId": "getAccounts",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Pagination page",
+            "required": false,
+            "explode": true,
+            "schema": {
+              "type": "number",
+              "default": 1
+            }
+          },
+          {
+            "name": "itemsPerPage",
+            "in": "query",
+            "description": "Pagination limit",
+            "required": false,
+            "explode": true,
+            "schema": {
+              "type": "number",
+              "default": 10
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Accounts"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "authorization": []
+          }
+        ]
+      }
+    },
+    "/accounts/{id}": {
+      "get": {
+        "tags": [
+          "accounts"
+        ],
+        "summary": "Get accounts by id",
+        "description": "Get accounts by id",
+        "operationId": "getAccountsById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "userID",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Accounts"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "authorization": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "accounts"
+        ],
+        "summary": "Add a new accounts",
+        "description": "Add a new accounts",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/Accounts"
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "userID",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccountsPost"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "authorization": []
+          }
+        ]
+      }
+    },
+    "/transactions": {
+      "get": {
+        "tags": [
+          "transactions"
+        ],
+        "summary": "Get transactions lists",
+        "description": "Get transactions Lists",
+        "operationId": "getTransactions",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Pagination page",
+            "required": false,
+            "explode": true,
+            "schema": {
+              "type": "number",
+              "default": 1
+            }
+          },
+          {
+            "name": "itemsPerPage",
+            "in": "query",
+            "description": "Pagination limit",
+            "required": false,
+            "explode": true,
+            "schema": {
+              "type": "number",
+              "default": 10
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Transactions"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "authorization": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "transactions"
+        ],
+        "summary": "Add a new transactions",
+        "description": "Add a new transactions",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "userID",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          }
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/Transactions"
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TransactionsPost"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "authorization": []
+          }
+        ]
+      }
+    },
+    "/transactions/{id}": {
+      "get": {
+        "tags": [
+          "transactions"
+        ],
+        "summary": "Get transactions by id",
+        "description": "Get transactions by id",
+        "operationId": "getTransactionsById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "userID",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Transactions"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "authorization": []
+          }
+        ]
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "tags": [
+          "auth"
+        ],
+        "summary": "login",
+        "description": "login",
+        "operationId": "login",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/Login"
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Login"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Invalid input"
+          }
+        },
+        "security": [
+          {
+            "authorization": []
+          }
+        ]
+      }
+    },
+    "/auth/register": {
+      "post": {
+        "tags": [
+          "auth"
+        ],
+        "summary": "register",
+        "description": "register",
+        "operationId": "register",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/Register"
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Register"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "authorization": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Users": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "example": 200
+          },
+          "message": {
+            "type": "string",
+            "example": "SUCCESS"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "customer_id": {
+                  "type": "integer",
+                  "example": 66
+                },
+                "full_name": {
+                  "type": "string",
+                  "example": "agus"
+                },
+                "gender": {
+                  "type": "string",
+                  "example": "Male"
+                },
+                "address": {
+                  "type": "string",
+                  "example": "test"
+                },
+                "phone_number": {
+                  "type": "string",
+                  "example": "1231232132"
+                },
+                "email": {
+                  "type": "string",
+                  "format": "email",
+                  "example": "test@mail.com"
+                },
+                "date_of_birth": {
+                  "type": "string",
+                  "format": "date-time",
+                  "example": "1990-02-15T00:00:00.000Z"
+                },
+                "identification_number": {
+                  "type": "string",
+                  "example": "12312321"
+                },
+                "created_at": {
+                  "type": "string",
+                  "format": "date-time",
+                  "example": "2023-11-11T14:59:30.848Z"
+                },
+                "updated_at": {
+                  "type": "string",
+                  "format": "date-time",
+                  "example": "2023-11-11T14:59:30.848Z"
+                },
+                "is_delete": {
+                  "type": "boolean",
+                  "example": false
+                },
+                "username": {
+                  "type": "string",
+                  "example": "username8977.007392914222"
+                }
+              }
+            }
+          }
+        }
+      },
+      "Accounts": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "example": 200
+          },
+          "message": {
+            "type": "string",
+            "example": "SUCCESS"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "account_id": {
+                  "type": "integer",
+                  "example": 1
+                },
+                "account_number": {
+                  "type": "string",
+                  "example": "1001"
+                },
+                "balance": {
+                  "type": "string",
+                  "example": "-62"
+                },
+                "account_type": {
+                  "type": "string",
+                  "example": "Savings"
+                },
+                "created_at": {
+                  "type": "string",
+                  "format": "date-time",
+                  "example": "2023-10-25T16:50:23.772Z"
+                },
+                "updated_at": {
+                  "type": "string",
+                  "format": "date-time",
+                  "example": "2023-11-13T20:23:27.571Z"
+                },
+                "is_delete": {
+                  "type": "boolean",
+                  "example": false
+                },
+                "status": {
+                  "type": "string",
+                  "example": "Active"
+                },
+                "customer_id": {
+                  "type": "integer",
+                  "example": 1
+                }
+              }
+            }
+          }
+        }
+      },
+      "Transactions": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "example": 200
+          },
+          "message": {
+            "type": "string",
+            "example": "SUCCESS"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "transaction_id": {
+                  "type": "integer",
+                  "example": 1
+                },
+                "transaction_type": {
+                  "type": "string",
+                  "example": "Deposit"
+                },
+                "amount": {
+                  "type": "string",
+                  "example": "1000"
+                },
+                "created_at": {
+                  "type": "string",
+                  "format": "date-time",
+                  "example": "2023-10-25T16:52:37.529Z"
+                },
+                "updated_at": {
+                  "type": "string",
+                  "format": "date-time",
+                  "example": "2023-10-25T16:52:37.529Z"
+                },
+                "is_delete": {
+                  "type": "boolean",
+                  "example": false
+                },
+                "account_id": {
+                  "type": "integer",
+                  "example": 1
+                },
+                "branch_id": {
+                  "type": "integer",
+                  "example": 1
+                },
+                "from_account_id": {
+                  "type": ["integer", "null"],
+                  "example": null
+                },
+                "to_account_id": {
+                  "type": ["integer", "null"],
+                  "example": null
+                }
+              }
+            }
+          }
+        }
+      },
+      "Login": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "example": 200
+          },
+          "message": {
+            "type": "string",
+            "example": "SUCCESS"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "customer": {
+                "type": "object",
+                "properties": {
+                  "customer_id": {
+                    "type": "integer",
+                    "example": 749
+                  },
+                  "full_name": {
+                    "type": "string",
+                    "example": "agus"
+                  },
+                  "gender": {
+                    "type": "string",
+                    "example": "Male"
+                  },
+                  "address": {
+                    "type": "string",
+                    "example": "test"
+                  },
+                  "phone_number": {
+                    "type": "string",
+                    "example": "1231232132"
+                  },
+                  "email": {
+                    "type": "string",
+                    "example": "test@mail.com"
+                  },
+                  "date_of_birth": {
+                    "type": "string",
+                    "format": "date-time",
+                    "example": "1990-02-15T00:00:00.000Z"
+                  },
+                  "identification_number": {
+                    "type": "string",
+                    "example": "12312321"
+                  },
+                  "created_at": {
+                    "type": "string",
+                    "format": "date-time",
+                    "example": "2023-11-13T20:12:25.718Z"
+                  },
+                  "updated_at": {
+                    "type": "string",
+                    "format": "date-time",
+                    "example": "2023-11-13T20:12:25.718Z"
+                  },
+                  "is_delete": {
+                    "type": "boolean",
+                    "example": false
+                  },
+                  "username": {
+                    "type": "string",
+                    "example": "usernameagus"
+                  },
+                  "password": {
+                    "type": "string",
+                    "example": "$2b$10$d8.gY9cr0PN8kOmwAjqg2OZ9RwLeHkTIpFwtuJ.lRkM3RlgtmVIA2"
+                  }
+                }
+              },
+              "token": {
+                "type": "string",
+                "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjdXN0b21lcl9pZCI6NzQ5LCJmdWxsX25hbWUiOiJhZ3VzIiwiZ2VuZGVyIjoiTWFsZSIsImFkZHJlc3MiOiJ0ZXN0IiwicGhvbmVfbnVtYmVyIjoiMTIzMTIzMjEzMiIsImVtYWlsIjoidGVzdEBtYWlsLmNvbSIsImRhdGVfb2ZfYmlydGgiOiIxOTkwLTAyLTE1VDAwOjAwOjAwLjAwMFoiLCJpZGVudGlmaWNhdGlvbl9udW1iZXIiOiIxMjMxMjMyMSIsImNyZWF0ZWRfYXQiOiIyMDIzLTExLTEzVDIwOjEyOjI1LjcxOFoiLCJ1cGRhdGVkX2F0IjoiMjAyMy0xMS0xM1QyMDoxMjoyNS43MThaIiwiaXNfZGVsZXRlIjpmYWxzZSwidXNlcm5hbWUiOiJ1c2VybmFtZWFndXMiLCJwYXNzd29yZCI6IiQyYiQxMCRkOC5nWTljcjBQTjhrT213QWpxZzJPWjlSd0xlSGtUSXBGd3R1Si5sUmtNM1JsZ3RtVklBMiIsImlhdCI6MTY5OTkwNzk0NCwiZXhwIjoxNjk5OTExNTQ0fQ.mdgOcBU1L-Jk-JZwoVGx9lX--KW7TPcWOvhhrQKZXvo"
+              }
+            }
+          }
+        }
+      },
+      "Register": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "example": 201
+          },
+          "message": {
+            "type": "string",
+            "example": "CREATED"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "customer_id": {
+                "type": "integer",
+                "example": 749
+              },
+              "full_name": {
+                "type": "string",
+                "example": "agus"
+              },
+              "gender": {
+                "type": "string",
+                "example": "Male"
+              },
+              "address": {
+                "type": "string",
+                "example": "test"
+              },
+              "phone_number": {
+                "type": "string",
+                "example": "1231232132"
+              },
+              "email": {
+                "type": "string",
+                "format": "email",
+                "example": "test@mail.com"
+              },
+              "date_of_birth": {
+                "type": "string",
+                "format": "date-time",
+                "example": "1990-02-15T00:00:00.000Z"
+              },
+              "identification_number": {
+                "type": "string",
+                "example": "12312321"
+              },
+              "created_at": {
+                "type": "string",
+                "format": "date-time",
+                "example": "2023-11-13T20:12:25.718Z"
+              },
+              "updated_at": {
+                "type": "string",
+                "format": "date-time",
+                "example": "2023-11-13T20:12:25.718Z"
+              },
+              "is_delete": {
+                "type": "boolean",
+                "example": false
+              },
+              "username": {
+                "type": "string",
+                "example": "usernameagus"
+              },
+              "password": {
+                "type": "string",
+                "example": "$2b$10$d8.gY9cr0PN8kOmwAjqg2OZ9RwLeHkTIpFwtuJ.lRkM3RlgtmVIA2"
+              }
+            }
+          }
+        }
+      },
+      "TransactionsPost": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "example": 200
+          },
+          "message": {
+            "type": "string",
+            "example": "SUCCESS"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "transaction_id": {
+                "type": "integer",
+                "example": 142
+              },
+              "transaction_type": {
+                "type": "string",
+                "example": "Deposit"
+              },
+              "amount": {
+                "type": "string",
+                "example": "10110"
+              },
+              "created_at": {
+                "type": "string",
+                "format": "date-time",
+                "example": "2023-11-13T21:12:27.358Z"
+              },
+              "updated_at": {
+                "type": "string",
+                "format": "date-time",
+                "example": "2023-11-13T21:12:27.358Z"
+              },
+              "is_delete": {
+                "type": "boolean",
+                "example": false
+              },
+              "account_id": {
+                "type": ["integer", "null"],
+                "example": null
+              },
+              "branch_id": {
+                "type": "integer",
+                "example": 1
+              },
+              "from_account_id": {
+                "type": "integer",
+                "example": 1
+              },
+              "to_account_id": {
+                "type": ["integer", "null"],
+                "example": null
+              }
+            }
+          }
+        }
+      },
+      "AccountsPost": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "example": 200
+          },
+          "message": {
+            "type": "string",
+            "example": "SUCCESS"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "account_id": {
+                "type": "integer",
+                "example": 94
+              },
+              "account_number": {
+                "type": "string",
+                "example": "1123"
+              },
+              "balance": {
+                "type": "string",
+                "example": "5000"
+              },
+              "account_type": {
+                "type": "string",
+                "example": "deposit"
+              },
+              "created_at": {
+                "type": "string",
+                "format": "date-time",
+                "example": "2023-11-13T21:05:38.361Z"
+              },
+              "updated_at": {
+                "type": "string",
+                "format": "date-time",
+                "example": "2023-11-13T21:05:38.361Z"
+              },
+              "is_delete": {
+                "type": "boolean",
+                "example": false
+              },
+              "status": {
+                "type": "string",
+                "example": "active"
+              },
+              "customer_id": {
+                "type": "integer",
+                "example": 1
+              }
+            }
+          }
+        }
+      }
+
+  
+    },
+    "requestBodies": {
+      "Users": {
+        "description": "User body",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": "Hello World"
+                },
+                "password": {
+                  "type": "string",
+                  "example": "wiqe19203sjadqjp123"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "user@mail.com"
+                }
+              }
+            }
+          }
+        }
+      },
+      "Login": {
+        "description": "login body",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "username": {
+                  "type": "string",
+                  "example": "user123"
+                },
+                "password": {
+                  "type": "string",
+                  "example": "1234"
+                }
+              }
+            }
+          }
+        }
+      },
+      "Register":{
+        "description": "register body",
+        "content":{
+          "application/json":{
+            "schema":{
+              "type": "object",
+              "properties": {
+                "full_name": {
+                  "type": "string",
+                  "example": "agus"
+                },
+                "gender": {
+                  "type": "string",
+                  "example": "Male"
+                },
+                "address": {
+                  "type": "string",
+                  "example": "test"
+                },
+                "email": {
+                  "type": "string",
+                  "format": "email",
+                  "example": "test@mail.com"
+                },
+                "date_of_birth": {
+                  "type": "string",
+                  "format": "date-time",
+                  "example": "1990-02-15T00:00:00.000Z"
+                },
+                "identification_number": {
+                  "type": "string",
+                  "example": "12312321"
+                },
+                "username": {
+                  "type": "string",
+                  "example": "usernameagus"
+                },
+                "password": {
+                  "type": "string",
+                  "example": "password"
+                },
+                "phone_number": {
+                  "type": "string",
+                  "example": "1231232132"
+                }
+              },
+              "required": ["full_name", "gender", "address", "email", "date_of_birth", "identification_number", "username", "password", "phone_number"]
+            }
+          }
+        }
+      },
+      "Transactions":{
+        "description": "transactions body",
+        "content":{
+          "application/json":{
+            "schema":{
+              "type": "object",
+              "properties": {
+                "from_account_id": {
+                  "type": "integer",
+                  "example": 1
+                },
+                "amount": {
+                  "type": "number",
+                  "example": 10110
+                },
+                "transaction_type": {
+                  "type": "string",
+                  "example": "Deposit"
+                },
+                "branch_id": {
+                  "type": "integer",
+                  "example": 1
+                }
+              },
+              "required": ["from_account_id", "amount", "transaction_type", "branch_id"]
+            }
+          }
+        }
+      },
+      "Accounts":{
+        "description": "accounts body",
+        "content":{
+          "application/json":{
+            "schema":{
+              "type": "object",
+      "properties": {
+        "account_number": {
+          "type": "string",
+          "example": "1123"
+        },
+        "balance": {
+          "type": "string",
+          "example": "5000"
+        },
+        "account_type": {
+          "type": "string",
+          "example": "deposit"
+        },
+        "status": {
+          "type": "string",
+          "example": "active"
+        }
+      },
+      "required": ["account_number", "balance", "account_type", "status"]
+            }
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "authorization": {
+        "type": "apiKey",
+        "name": "authorization",
+        "in": "header"
+      }
+    }
+  }
+}
