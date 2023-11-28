@@ -1,0 +1,59 @@
+<!-- login.ejs -->
+
+<h2>Login</h2>
+<form id="loginForm">
+    <div>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+    </div>
+    <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+    </div>
+    <div>
+        <input type="submit" value="Login">
+    </div>
+</form>
+<div>
+    <a href="/view/forgotPassword">Forgot Password?</a>
+</div>
+<div>
+    <p>Doesn't have an account? <a href="/view/register">Register</a></p>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const loginForm = document.getElementById('loginForm');
+
+    loginForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        try {
+            console.log('response2')
+
+            const response = await fetch('/api/v1/auth/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ username, password }),
+            });
+
+            if (!response.ok) {
+                throw new Error('Invalid credentials');
+            }
+            const data = await response.json();
+
+            localStorage.setItem('token', data.data.token);
+
+            window.location.href = `/view/homePage?token=${data.data.token}`;
+
+        } catch (error) {
+            console.error('Login failed:', error.message);
+        }
+    });
+});
+</script>

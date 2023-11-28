@@ -1,0 +1,389 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "DigiBank",
+    "dateExported": "2023-11-19T15:54:21.885Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "00b3a02b-c077-4566-bf44-d25825887f79",
+            "colId": "e67f5fea-3308-459b-8d01-6454bc873c9e",
+            "containerId": "",
+            "name": "get all user ",
+            "url": "{{base_url}}/api/v1/users?page=1&itemsPerPage=816",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2023-10-27T12:44:05.086Z",
+            "modified": "2023-11-19T15:08:21.955Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "page",
+                    "value": "1",
+                    "isPath": false
+                },
+                {
+                    "name": "itemsPerPage",
+                    "value": "816",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "83ca6720-0c33-48fd-baea-a2dca7b64742",
+            "colId": "e67f5fea-3308-459b-8d01-6454bc873c9e",
+            "containerId": "",
+            "name": "get user by id ",
+            "url": "{{base_url}}/api/v1/users/816",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2023-10-27T12:44:45.836Z",
+            "modified": "2023-11-19T15:08:33.888Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "62a83f22-f204-49ba-bce1-1953e058506e",
+            "colId": "e67f5fea-3308-459b-8d01-6454bc873c9e",
+            "containerId": "",
+            "name": "update user",
+            "url": "{{base_url}}/api/v1/users/816",
+            "method": "PUT",
+            "sortNum": 50000,
+            "created": "2023-10-27T12:45:15.550Z",
+            "modified": "2023-11-19T15:15:01.516Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "full_name",
+                        "value": "agus robertus"
+                    }
+                ],
+                "files": [
+                    {
+                        "name": "image",
+                        "value": "/home/robert/Pictures/pngwing.com.png"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "5ee11c07-b713-4e98-83e8-1991b413b608",
+            "colId": "e67f5fea-3308-459b-8d01-6454bc873c9e",
+            "containerId": "",
+            "name": "delete user",
+            "url": "{{base_url}}/api/v1/users/383",
+            "method": "DELETE",
+            "sortNum": 60000,
+            "created": "2023-10-27T12:47:49.868Z",
+            "modified": "2023-11-12T06:29:36.904Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "f81c1f42-a745-4fc1-8564-58cb79143d8c",
+            "colId": "e67f5fea-3308-459b-8d01-6454bc873c9e",
+            "containerId": "",
+            "name": "get all account ",
+            "url": "{{base_url}}/api/v1/accounts?page=1&itemsPerPage=1",
+            "method": "GET",
+            "sortNum": 70000,
+            "created": "2023-10-27T13:14:41.995Z",
+            "modified": "2023-11-13T21:02:58.781Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "page",
+                    "value": "1",
+                    "isPath": false
+                },
+                {
+                    "name": "itemsPerPage",
+                    "value": "1",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "8b24cf69-d236-49c0-9bd4-3ff7871bf0ab",
+            "colId": "e67f5fea-3308-459b-8d01-6454bc873c9e",
+            "containerId": "",
+            "name": "get account by id ",
+            "url": "{{base_url}}/api/v1/accounts/2",
+            "method": "GET",
+            "sortNum": 80000,
+            "created": "2023-10-27T13:14:49.461Z",
+            "modified": "2023-10-27T13:21:36.719Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "b7331355-64b5-4266-ae26-8f123111a7d7",
+            "colId": "e67f5fea-3308-459b-8d01-6454bc873c9e",
+            "containerId": "",
+            "name": "add new account",
+            "url": "{{base_url}}/api/v1/accounts/1",
+            "method": "POST",
+            "sortNum": 90000,
+            "created": "2023-10-27T13:14:57.920Z",
+            "modified": "2023-10-27T13:30:52.704Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"account_number\": \"1123\",\n    \"balance\": \"5000\",\n    \"account_type\": \"deposit\",\n    \"status\": \"active\"\n  }",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "ec16eb4f-f77c-499b-93d9-91972e751f29",
+            "colId": "e67f5fea-3308-459b-8d01-6454bc873c9e",
+            "containerId": "",
+            "name": "get transaction",
+            "url": "{{base_url}}/api/v1/transactions?page=0&itemsPerPage=1",
+            "method": "GET",
+            "sortNum": 100000,
+            "created": "2023-10-27T13:31:19.458Z",
+            "modified": "2023-11-13T21:10:09.789Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "page",
+                    "value": "0",
+                    "isPath": false
+                },
+                {
+                    "name": "itemsPerPage",
+                    "value": "1",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "3ba273f5-699a-4a57-bcc8-f46215edffa8",
+            "colId": "e67f5fea-3308-459b-8d01-6454bc873c9e",
+            "containerId": "",
+            "name": "get transaction by id",
+            "url": "{{base_url}}/api/v1/transactions/32",
+            "method": "GET",
+            "sortNum": 110000,
+            "created": "2023-10-27T13:31:54.604Z",
+            "modified": "2023-11-12T17:48:24.604Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "39163a8f-0f44-4f9f-8fa7-05ce5865d617",
+            "colId": "e67f5fea-3308-459b-8d01-6454bc873c9e",
+            "containerId": "",
+            "name": "create transaction deposit",
+            "url": "{{base_url}}/api/v1/transactions",
+            "method": "POST",
+            "sortNum": 120000,
+            "created": "2023-10-27T13:32:29.221Z",
+            "modified": "2023-10-27T13:57:19.278Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"from_account_id\": 1,\n  \"amount\": 10110, \n  \"transaction_type\": \"Deposit\",\n  \"branch_id\": 1\n}\n",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "943806f5-a4eb-4391-a68e-4eba774af86f",
+            "colId": "e67f5fea-3308-459b-8d01-6454bc873c9e",
+            "containerId": "",
+            "name": "create transaction withdraw",
+            "url": "{{base_url}}/api/v1/transactions",
+            "method": "POST",
+            "sortNum": 130000,
+            "created": "2023-10-27T13:43:27.293Z",
+            "modified": "2023-10-27T13:57:29.287Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"from_account_id\": 1,\n  \"amount\": 11123123,\n  \"transaction_type\": \"Withdrawal\",\n  \"branch_id\": 1\n}\n",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "4434d535-e602-407f-963c-4c6631ec6036",
+            "colId": "e67f5fea-3308-459b-8d01-6454bc873c9e",
+            "containerId": "",
+            "name": "create transaction transfer",
+            "url": "{{base_url}}/api/v1/transactions",
+            "method": "POST",
+            "sortNum": 140000,
+            "created": "2023-10-27T13:44:47.340Z",
+            "modified": "2023-10-27T13:58:19.163Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"from_account_id\": 1,\n  \"to_account_id\": 2,\n  \"amount\": 11,\n  \"transaction_type\": \"Transfer\",\n  \"branch_id\": 1\n}\n",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "1af80187-4ec8-4acf-9cbe-00f391a08fe6",
+            "colId": "e67f5fea-3308-459b-8d01-6454bc873c9e",
+            "containerId": "",
+            "name": "Register",
+            "url": "{{base_url}}/api/v1/auth/register",
+            "method": "POST",
+            "sortNum": 150000,
+            "created": "2023-11-13T10:40:59.515Z",
+            "modified": "2023-11-19T15:47:54.621Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "full_name",
+                        "value": "agus dengan image"
+                    },
+                    {
+                        "name": "gender",
+                        "value": "Male"
+                    },
+                    {
+                        "name": "address",
+                        "value": "Jakarta Pusat"
+                    },
+                    {
+                        "name": "email",
+                        "value": "agus@mail.com"
+                    },
+                    {
+                        "name": "date_of_birth",
+                        "value": "1990-02-15T00:00:00.000Z"
+                    },
+                    {
+                        "name": "identification_number",
+                        "value": "12312321"
+                    },
+                    {
+                        "name": "username",
+                        "value": "agus123456"
+                    },
+                    {
+                        "name": "password",
+                        "value": "password"
+                    },
+                    {
+                        "name": "phone_number",
+                        "value": "081212321312312"
+                    }
+                ],
+                "files": [
+                    {
+                        "name": "image",
+                        "value": "/home/robert/Documents/NETWORK AUTOMATION WITH ANSIBLE.pdf"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "b19daca0-af40-4497-8761-ac79b5b3493a",
+            "colId": "e67f5fea-3308-459b-8d01-6454bc873c9e",
+            "containerId": "",
+            "name": "Post User",
+            "url": "{{base_url}}/api/v1/users",
+            "method": "POST",
+            "sortNum": 155000,
+            "created": "2023-11-19T15:13:21.104Z",
+            "modified": "2023-11-19T15:43:53.877Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "full_name",
+                        "value": "agus dengan image"
+                    },
+                    {
+                        "name": "gender",
+                        "value": "Male"
+                    },
+                    {
+                        "name": "address",
+                        "value": "Jakarta Pusat"
+                    },
+                    {
+                        "name": "email",
+                        "value": "agus@mail.com"
+                    },
+                    {
+                        "name": "date_of_birth",
+                        "value": "1990-02-15T00:00:00.000Z"
+                    },
+                    {
+                        "name": "identification_number",
+                        "value": "12312321"
+                    },
+                    {
+                        "name": "username",
+                        "value": "agus123"
+                    },
+                    {
+                        "name": "password",
+                        "value": "password"
+                    },
+                    {
+                        "name": "phone_number",
+                        "value": "081212321312312"
+                    }
+                ],
+                "files": [
+                    {
+                        "name": "image",
+                        "value": "/home/robert/Pictures/880118c87e072e7df4352078249f70a8.jpg"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "0b98302d-29ba-49d0-969b-274fa3c621eb",
+            "colId": "e67f5fea-3308-459b-8d01-6454bc873c9e",
+            "containerId": "",
+            "name": "Login",
+            "url": "{{base_url}}/api/v1/auth/login",
+            "method": "POST",
+            "sortNum": 160000,
+            "created": "2023-11-13T10:41:13.932Z",
+            "modified": "2023-11-13T20:36:56.521Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"username\": \"usernameagus\",\n  \"password\": \"password\"\n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}

@@ -1,0 +1,96 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model account {
+  account_id                                       Int             @id @default(autoincrement())
+  account_number                                   String?         @db.VarChar(20)
+  balance                                          Decimal?        @db.Decimal(12, 2)
+  account_type                                     String?         @db.VarChar(50)
+  created_at                                       DateTime?       @default(now())
+  updated_at                                       DateTime?       @updatedAt
+  is_delete                                        Boolean?         @default(false)
+  status                                           String?         @db.VarChar(20)
+  customer_id                                      Int?
+  customer                                         customer?       @relation(fields: [customer_id], references: [customer_id], onDelete: NoAction, onUpdate: NoAction)
+  accountholder                                    accountholder[]
+  transaction                                      transaction[]
+  transaction_transaction_from_account_idToaccount transaction[]   @relation("transaction_from_account_idToaccount")
+  transaction_transaction_to_account_idToaccount   transaction[]   @relation("transaction_to_account_idToaccount")
+}
+
+model accountholder {
+  account_id  Int
+  customer_id Int
+  created_at  DateTime? @default(now())
+  updated_at  DateTime? @updatedAt
+  is_delete   Boolean?   @default(false)
+  account     account   @relation(fields: [account_id], references: [account_id], onDelete: NoAction, onUpdate: NoAction)
+  customer    customer  @relation(fields: [customer_id], references: [customer_id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@id([account_id, customer_id])
+}
+
+model bank {
+  bank_id             Int          @id @default(autoincrement())
+  bank_name           String?      @db.VarChar(255)
+  head_office_address String?
+  phone_number        String?      @db.VarChar(20)
+  created_at          DateTime?    @default(now())
+  updated_at          DateTime?    @updatedAt
+  is_delete           Boolean?      @default(false)
+  bankbranch          bankbranch[]
+}
+
+model bankbranch {
+  branch_id      Int           @id @default(autoincrement())
+  branch_name    String?       @db.VarChar(255)
+  branch_address String?
+  bank_id        Int?
+  created_at     DateTime?     @default(now())
+  updated_at     DateTime?     @updatedAt
+  is_delete      Boolean?       @default(false)
+  bank           bank?         @relation(fields: [bank_id], references: [bank_id], onDelete: NoAction, onUpdate: NoAction)
+  transaction    transaction[]
+}
+
+model customer {
+  customer_id           Int             @id @default(autoincrement())
+  full_name             String?         @db.VarChar(255)
+  gender                String?         @db.VarChar(10)
+  address               String?
+  phone_number          String?         @db.VarChar(20)
+  email                 String?         @db.VarChar(255)
+  date_of_birth         DateTime?       @db.Date
+  identification_number String?         @db.VarChar(20)
+  created_at            DateTime?       @default(now())
+  updated_at            DateTime?       @updatedAt
+  is_delete             Boolean?         @default(false)
+  username              String?         @unique
+  password              String?
+  image                 String? 
+  account               account[]
+  accountholder         accountholder[]
+}
+
+model transaction {
+  transaction_id                               Int         @id @default(autoincrement())
+  transaction_type                             String?     @db.VarChar(20)
+  amount                                       Decimal?    @db.Decimal(12, 2)
+  created_at                                   DateTime?   @default(now())
+  updated_at                                   DateTime?   @updatedAt
+  is_delete                                    Boolean?     @default(false)
+  account_id                                   Int?
+  branch_id                                    Int?
+  from_account_id                              Int?
+  to_account_id                                Int?
+  account                                      account?    @relation(fields: [account_id], references: [account_id], onDelete: NoAction, onUpdate: NoAction)
+  bankbranch                                   bankbranch? @relation(fields: [branch_id], references: [branch_id], onDelete: NoAction, onUpdate: NoAction)
+  account_transaction_from_account_idToaccount account?    @relation("transaction_from_account_idToaccount", fields: [from_account_id], references: [account_id], onDelete: NoAction, onUpdate: NoAction)
+  account_transaction_to_account_idToaccount   account?    @relation("transaction_to_account_idToaccount", fields: [to_account_id], references: [account_id], onDelete: NoAction, onUpdate: NoAction)
+}
